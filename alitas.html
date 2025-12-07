@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<body>
+    <head>
+
+    </head>
+</body>
+
+<!DOCTYPE html> <!-- Define que el documento usa HTML5 -->
+<html lang="es"> <!-- Indica que el idioma principal del sitio es español -->
+<head>
+  <meta charset="UTF-8"> <!-- Codificación de caracteres para mostrar acentos y símbolos correctamente -->
+  <title>Recetas Mexicanas</title> <!-- Título que aparece en la pestaña del navegador -->
+
+  <style>
+    /* Estilo general del cuerpo del sitio */
+    body {
+      margin: 0; /* Elimina márgenes por defecto */
+      font-family: Arial, sans-serif; /* Fuente principal del texto */
+      background-color: #fff8f0; /* Color de fondo suave */
+      color: #333; /* Color del texto principal */
+    }
+
+    /* Imagen fija decorativa en el lado derecho */
+    .imagen-fija {
+      position: fixed; /* Se mantiene en la misma posición al hacer scroll */
+      top: 10px; /* Separación desde la parte superior */
+      right: 10px; /* Separación desde la derecha */
+      width: 600px; /* Ancho de la imagen */
+      z-index: 5000; /* Prioridad visual sobre otros elementos */
+    }
+
+    /* Contenedor del menú hamburguesa */
+    .menu-container {
+      position: fixed; /* Se mantiene visible en la esquina superior izquierda */
+      top: 10px;
+      left: 10px;
+      z-index: 1000; /* Prioridad visual alta */
+    }
+
+    /* Oculta el checkbox que controla el menú */
+    #menu-toggle {
+      display: none;
+    }
+
+    /* Icono del menú hamburguesa (las tres rayitas) */
+    .hamburguesa {
+      display: flex; /* Usa flexbox para alinear las rayitas verticalmente */
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 25px;
+      cursor: pointer; /* Cambia el cursor al pasar por encima */
+    }
+
+    /* Estilo de cada rayita del menú hamburguesa */
+    .hamburguesa span {
+      height: 4px;
+      background-color: #c62828; /* Color rojo mexicano */
+      border-radius: 2px; /* Bordes redondeados */
+    }
+
+    /* Menú desplegable oculto por defecto */
+    .menu {
+      display: none;
+      flex-direction: column;
+      background-color: #c62828; /* Fondo rojo mexicano */
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    /* Estilo de los enlaces del menú */
+    .menu a {
+      color: white; /* Color del texto de los enlaces */
+      text-decoration: none; /* Quita subrayado */
+      padding: 8px 0;
+      font-weight: bold;
+    }
+
+    /* Efecto al pasar el mouse por los enlaces */
+    .menu a:hover {
+      text-decoration: underline;
+    }
+
+    /* Muestra el menú cuando el checkbox está activado */
+    #menu-toggle:checked ~ .menu {
+      display: flex;
+    }
+
+    /* Contenedor principal del contenido */
+    .contenido {
+      max-width: 800px; /* Ancho máximo del contenido */
+      margin: 40px auto; /* Centra horizontalmente y da espacio arriba/abajo */
+      padding: 20px;
+      margin-right: 640px; /* Espacio para que no se encime con la imagen fija */
+      margin-left: 100px; /* Espacio para el menú hamburguesa */
+      line-height: 1.6; /* Espaciado entre líneas */
+      text-align: center; /* Centra el texto dentro del contenedor */
+    }
+
+    /* Estilo del título principal */
+    .contenido h1 {
+      font-size: 40px;
+      color: #c62828;
+      margin-bottom: 20px;
+    }
+
+    /* Estilo para imágenes centradas debajo del título */
+    .imagen-centro {
+      display: block;
+      margin: 0 auto 30px auto;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Tarjetas individuales para cada receta */
+    .tarjeta {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background-color: #fff;
+      text-align: left;
+    }
+
+    /* Estilo para imágenes dentro de las tarjetas */
+    .tarjeta img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Estilo para títulos dentro de las tarjetas */
+    .tarjeta h3 {
+      margin-top: 10px;
+      color: #c62828;
+    }
+
+    /* Estilos responsivos para pantallas pequeñas */
+    @media screen and (max-width: 600px) {
+      .contenido {
+        margin: 20px;
+        margin-right: 20px;
+        margin-left: 20px;
+        text-align: left;
+      }
+
+      .imagen-fija {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .menu-container {
+        top: 5px;
+        left: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú hamburguesa con enlaces a otras páginas -->
+  <div class="menu-container">
+    <input type="checkbox" id="menu-toggle"> <!-- Controla si el menú está abierto -->
+    <label for="menu-toggle" class="hamburguesa"> <!-- Icono del menú -->
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <!-- Menú desplegable con enlaces -->
+    <div class="menu">
+      <a href="comida.html">Receta de comida típica mexicana</a>
+      <a href="alitas.html">Recetas de alitas de pollo</a>
+      <a href="pollo.html">Recetas de pollo</a>
+      <a href="gelatina.html">Recetas de gelatina con pollo</a>
+    </div>
+  </div>
+
+  <!-- Imagen decorativa fija en el lado derecho -->
+  <img src="imagen.jpg" alt="Platillo mexicano" class="imagen-fija">
+
+  <!-- Contenido principal del sitio -->
+  <div class="contenido">
+    <h1>Recetas de comidas Mexicanas</h1>
+
+    <!-- Texto introductorio sobre la comida mexicana -->
+    <p>
+      Si eres amante de la comida mexicana y buscas opciones sencillas para preparar en casa, estas recetas de comida mexicana fáciles son justo lo que necesitas...
+      <br><br>
+      Aquí tienes un artículo con recetas de comida mexicana fáciles que puedes preparar en casa...
+    </p>
+
+    <!-- Imagen adicional debajo del texto -->
+    <img src="imagen1.webp" alt="Imagen adicional">
+
+   <!-- Tarjetas de recetas con video incrustado -->
+<!-- Cada tarjeta contiene un título, una descripción y un video de YouTube -->
+
+<!-- Tarjeta 1: Tacos de costilla y lomo de res -->
+<div class="tarjeta"> <!-- Contenedor de la receta -->
+  <h3>Tacos de costilla y lomo de res con guacamole mexicano</h3> <!-- Título del platillo -->
+  <p>Un clásico mexicano con maíz, carne de cerdo y guarniciones frescas.</p> <!-- Descripción del platillo -->
+  
+  <!-- Video de YouTube que muestra cómo preparar los tacos -->
+  <iframe width="100%" height="315"
+    src="https://www.youtube.com/embed/IMHZDTzHeYA" <!-- URL del video en formato embed -->
+    title="Tacos de costilla y lomo de res con guacamole mexicano" <!-- Título del video -->
+    frameborder="0" allowfullscreen> <!-- Quita el borde y permite pantalla completa -->
+  </iframe>
+</div>
+
+<!-- Tarjeta 2: Guacamole Casero -->
+<div class="tarjeta">
+  <h3>Guacamole Casero</h3> <!-- Título del platillo -->
+  <p>Esta receta de Guacamole Mexicano es muy rápida y fácil de preparar. Además, es ideal para acompañar todo tipo de platillos.</p> <!-- Descripción del platillo -->
+  
+  <!-- Video de YouTube que muestra cómo preparar guacamole -->
+  <iframe width="100%" height="315"
+    src="https://www.youtube.com/embed/BVFSDFZQDi4?start=1" <!-- Video comienza en el segundo 1 -->
+    title="Guacamole Casero"
+    frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+<!-- Tarjeta 3: Enchiladas de pollo en salsa verde -->
+<div class="tarjeta">
+  <h3>Enchiladas de pollo en salsa verde</h3> <!-- Título del platillo -->
+  <p>Exquisitas Enchiladas Verdes De Pollo hechas con tortilla de harina, pollo, crema y queso cheddar. Para chuparse los dedos.</p> <!-- Descripción del platillo -->
+  
+  <!-- Video de YouTube que muestra cómo preparar enchiladas verdes -->
+  <iframe width="100%" height="315"
+    src="https://www.youtube.com/embed/r4gjIWGNa2Q"
+    title="Enchiladas de pollo en salsa verde"
+    frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+<!-- Tarjeta 4: Chilaquiles mexicanos adobados -->
+<div class="tarjeta">
+  <h3>Chilaquiles mexicanos adobados</h3> <!-- Título del platillo -->
+  <p>Ideal para degustar en el almuerzo o cena. Acompáñalos con unos huevos estrellados o revueltos y frijoles bien refritos.</p> <!-- Descripción del platillo -->
+  
+  <!-- Video de YouTube que muestra cómo preparar chilaquiles adobados -->
+  <iframe width="100%" height="315"
+    src="https://www.youtube.com/embed/9QSgB9APYV4"
+    title="Chilaquiles mexicanos adobados"
+    frameborder="0" allowfullscreen>
+  </iframe>
+</div>

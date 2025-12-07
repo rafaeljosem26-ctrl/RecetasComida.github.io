@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    /* Estilo general del cuerpo del sitio */
+    body {
+      margin: 0; /* Elimina márgenes por defecto */
+      font-family: Arial, sans-serif; /* Fuente principal */
+      background-color: #fff8f0; /* Color de fondo suave */
+      color: #333; /* Color del texto principal */
+    }
+
+    /* Imagen fija decorativa en el lado derecho */
+    .imagen-fija {
+      position: fixed; /* Se mantiene en la misma posición al hacer scroll */
+      top: 10px; /* Separación desde arriba */
+      right: 10px; /* Separación desde la derecha */
+      width: 600px; /* Ancho de la imagen */
+      z-index: 5000; /* Prioridad visual sobre otros elementos */
+    }
+
+    /* Contenedor del menú hamburguesa */
+    .menu-container {
+      position: fixed; /* Se mantiene visible en la esquina superior izquierda */
+      top: 10px;
+      left: 10px;
+      z-index: 1000; /* Prioridad visual alta */
+    }
+
+    #menu-toggle {
+      display: none; /* Oculta el checkbox que controla el menú */
+    }
+
+    .hamburguesa {
+      display: flex; /* Usa flexbox para alinear las rayitas verticalmente */
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 25px;
+      cursor: pointer; /* Cambia el cursor al pasar por encima */
+    }
+
+    .hamburguesa span {
+      height: 4px; /* Altura de cada rayita */
+      background-color: #c62828; /* Color rojo mexicano */
+      border-radius: 2px; /* Bordes redondeados */
+    }
+
+    .menu {
+      display: none; /* Oculta el menú por defecto */
+      flex-direction: column;
+      background-color: #c62828; /* Fondo rojo mexicano */
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    .menu a {
+      color: white; /* Color del texto de los enlaces */
+      text-decoration: none; /* Quita subrayado */
+      padding: 8px 0;
+      font-weight: bold;
+    }
+
+    .menu a:hover {
+      text-decoration: underline; /* Subraya al pasar el mouse */
+    }
+
+    #menu-toggle:checked ~ .menu {
+      display: flex; /* Muestra el menú cuando el checkbox está activado */
+    }
+
+    /* Contenedor principal del contenido */
+    .contenido {
+      max-width: 800px; /* Ancho máximo del contenido */
+      margin: 40px auto; /* Centra horizontalmente y da espacio arriba/abajo */
+      padding: 20px;
+      margin-right: 640px; /* Espacio para que no se encime con la imagen fija */
+      margin-left: 100px; /* Espacio para el menú hamburguesa */
+      line-height: 1.6; /* Espaciado entre líneas */
+      text-align: center; /* Centra el texto dentro del contenedor */
+    }
+
+    .contenido h1 {
+      font-size: 40px; /* Tamaño del título principal */
+      color: #c62828; /* Color rojo mexicano */
+      margin-bottom: 20px; /* Espacio debajo del título */
+    }
+
+    /* Estilo para imágenes centradas debajo del título */
+    .imagen-centro {
+      display: block;
+      margin: 0 auto 30px auto; /* Centrado horizontal y espacio inferior */
+      max-width: 100%;
+      border-radius: 10px; /* Bordes redondeados */
+    }
+
+    /* Tarjetas individuales para cada receta */
+    .tarjeta {
+      border: 1px solid #ccc; /* Borde gris claro */
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave */
+      background-color: #fff;
+      text-align: left; /* Alinea el texto a la izquierda dentro de la tarjeta */
+    }
+
+    .tarjeta img {
+      width: 100%; /* Imagen ocupa todo el ancho de la tarjeta */
+      border-radius: 10px;
+    }
+
+    .tarjeta h3 {
+      margin-top: 10px;
+      color: #c62828; /* Color del título de la receta */
+    }
+
+    /* Estilos responsivos para pantallas pequeñas */
+    @media screen and (max-width: 600px) {
+      .contenido {
+        margin: 20px; /* Reduce márgenes laterales */
+        margin-right: 20px;
+        margin-left: 20px;
+        text-align: left; /* Alinea el texto a la izquierda en móviles */
+      }
+
+      .imagen-fija {
+        position: static; /* Ya no es fija en móviles */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin-top: 20px;
+      }
+
+      .menu-container {
+        top: 5px;
+        left: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú hamburguesa -->
+  <div class="menu-container">
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburguesa">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <div class="menu">
+      <a href="comida.html">Receta de comida tipica mexicana</a>
+      <a href="alitas.html">Recetas de alitas de pollo</a>
+      <a href="pollo.html">Recetas de pollo</a>
+      <a href="gelatina.html">Recetas de gelatina con pollo</a>
+    </div>
+  </div>
+
+  <!-- Imagen fija decorativa -->
+  <img src="imagen.jpg" alt="Platillo mexicano" class="imagen-fija">
+
+  <!-- Contenido principal -->
+  <div class="contenido">
+    <h1>Recetas  de comidas Mexicanas</h1>
+<p>
+      Si eres amante de la comida mexicana y buscas opciones sencillas para preparar en casa, estas recetas de comida mexicana fáciles es justo lo que necesitas. Desde tacos y guacamole hasta enchiladas y sopes, estas recetas te permitirán disfrutar de los sabores auténticos de México sin complicaciones. Con ingredientes accesibles y pasos fáciles de seguir, podrás sorprender a tu familia y amigos con platillos llenos de sabor que capturan la esencia de la cocina mexicana. ¡Prepara estas recetas y lleva un pedacito de México a tu mesa!<br><br>
+      Aquí tienes un artículo con recetas de comida mexicana fáciles  que puedes preparar en casa. Son perfectas para quienes desean disfrutar del auténtico sabor de México sin pasar horas en la cocina.
+    </p>
+      <!-- Imagen adicional (no fija) -->
+  <img src="imagen1.webp" alt="Imagen adicional">
+
+    <!-- Tarjetas de recetas -->
+    <div class="tarjeta">
+      <h3>Tacos de costilla y lomo de res con guacamole mexicano</h3>
+      <p>Un clásico mexicano con maíz, carne de cerdo y guarniciones frescas.</p>
+         <iframe width="100%" height="315" 
+    src="https://www.youtube.com/embed/IMHZDTzHeYA" 
+    title="Tacos de costilla y lomo de res con guacamole mexicano"
+    frameborder="0" allowfullscreen>  <!-- Quita el borde y permite pantalla completa -->
+  </iframe>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Guacamole Casero</h3>
+      <p>Esta receta de Guacamole Mexicano es muy rápida y fácil de preparar. Además, es ideal para acompañar todo tipo de platillos.</p>
+       <iframe width="100%" height="315" 
+    src="https://www.youtube.com/embed/BVFSDFZQDi4?start=1" 
+    title="Tacos de costilla y lomo de res con guacamole mexicano"
+    frameborder="0" allowfullscreen>
+  </iframe>
+    </div>
+  
+
+  <div class="tarjeta">
+      <h3>Enchiladas de pollo en salsa verde</h3>
+      <p>Exquisitas Enchiladas Verdes De Pollo hechas con tortilla de harina, pollo, crema y queso cheddar. Para chuparse los dedos.</p>
+          <iframe width="100%" height="315" 
+    src="https://www.youtube.com/embed/r4gjIWGNa2Q" 
+    title="Tacos de costilla y lomo de res con guacamole mexicano" 
+    frameborder="0" allowfullscreen>
+  </iframe>
+    </div>
+  
+  <div class="tarjeta">
+      <h3>Chilaquiles mexicanos adobados</h3>
+      <p>Ideal para degustar en el almuerzo o cena. Acompáñalos con unos huevos estrellados o revueltos y frijoles bien refritos..</p>
+        <iframe width="100%" height="315" 
+    src="https://www.youtube.com/embed/9QSgB9APYV4" 
+    title="Tacos de costilla y lomo de res con guacamole mexicano" 
+    frameborder="0" allowfullscreen>
+  </iframe>
+  </div>
+
+  <div class="tarjeta">
+      <h3>Receta de pozole rojo</h3>
+      <p>Un platillo para convivir en familias o mes patrio.</p>
+          <iframe width="100%" height="315" 
+    src="https://www.youtube.com/embed/uvzLrrcPvyM" 
+    title="Tacos de costilla y lomo de res con guacamole mexicano" 
+    frameborder="0" allowfullscreen>
+  </iframe>
+    </div>
+  </div>
+
+</body>
+</html>
